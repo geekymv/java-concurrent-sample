@@ -1,9 +1,10 @@
-package com.geekymv.concurrent;
+package com.geekymv.concurrent.chapter02;
 
-public class ThreadTest01 {
+public class ThreadTest02 {
 
     public static void main(String[] args) {
-        Thread t1 = new MyThread();
+        MyTask myThread02 = new MyTask();
+        Thread t1 = new Thread(myThread02, "线程1");
         // start thread
         t1.start();
 
@@ -13,14 +14,7 @@ public class ThreadTest01 {
 }
 
 
-class MyThread extends Thread {
-
-    public MyThread() {
-    }
-
-    public MyThread(String name) {
-        super(name);
-    }
+class MyTask implements Runnable {
 
     @Override
     public void run() {
