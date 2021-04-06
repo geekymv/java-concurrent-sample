@@ -1,7 +1,6 @@
 package com.geekymv.concurrent.chapter06;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class WaitNotifyQueueDemo {
@@ -43,7 +42,7 @@ class WaitNotifyQueue<T> {
     // 容器容量
     private final int size;
 
-    private List<T> list = new ArrayList<>();
+    private LinkedList<T> list = new LinkedList<>();
 
     private int count;
 
@@ -81,7 +80,7 @@ class WaitNotifyQueue<T> {
         }
 
         // 移除第一个元素
-        T t = list.remove(0);
+        T t = list.removeFirst();
         count--;
 
         // 通知其他线程
