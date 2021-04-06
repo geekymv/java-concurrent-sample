@@ -2,7 +2,6 @@ package com.geekymv.concurrent.chapter06;
 
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -32,17 +31,6 @@ public class ReentrantLockQueueDemo {
                 }
             }, "消费者线程-" + i).start();
         }
-
-
-        new Thread(()-> {
-
-            while (true) {
-                int count = queue.getCount();
-                System.out.println("count = " + count);
-            }
-
-        }).start();
-
     }
 }
 
@@ -112,11 +100,6 @@ class ReentrantLockQueue<T> {
             lock.unlock();
         }
     }
-
-    public int getCount() {
-        return count;
-    }
-
 }
 
 
