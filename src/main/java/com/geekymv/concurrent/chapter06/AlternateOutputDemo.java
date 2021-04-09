@@ -42,6 +42,7 @@ public class AlternateOutputDemo {
                 lock.notify();
 
                 if(i != len-1) {
+                    // 最后一次输出之后无需再等待
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
